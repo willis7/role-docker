@@ -1,0 +1,10 @@
+{
+    "log-level": "{{ docker['config']['log-level'] }}",
+    "iptables": {{ docker['config']['iptables'] }},
+    "selinux-enabled": {{ docker['config']['selinux-enabled'] }},
+    "icc": {{ docker['config']['icc'] }},
+    "log-driver": "{{ docker['config']['log-driver'] }}",
+    "insecure-registries": [],
+    "userland-proxy": {{ docker['config']['userland-proxy'] }},
+    "disable-legacy-registry": {{ docker['config']['disable-legacy-registry'] }}
+}

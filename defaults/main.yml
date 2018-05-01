@@ -1,0 +1,14 @@
+---
+docker:
+  config:
+    selinux-enabled: "false"
+    icc: "false"
+    log-level: "info"
+    iptables: "true"
+    log-driver: "syslog"
+    disable-legacy-registry: "true"
+    userland-proxy: "false"
+  pkg:
+    name: "docker-ce"
+    repo: "https://download.docker.com/linux/centos/docker-ce.repo"
+  service: "docker"

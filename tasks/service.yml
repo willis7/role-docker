@@ -1,0 +1,10 @@
+---
+- name: Start docker
+  service:
+    name: "{{ docker['service'] }}"
+    state: started
+
+- name: Enable docker
+  service:
+    name: "{{ docker['service'] }}"
+    enabled: yes

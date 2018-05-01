@@ -1,0 +1,34 @@
+---
+# TODO: idempotency. This should only run when
+# the desired version is not already installed.
+- name: Uninstall old docker installs
+  package:
+    name: "{{ item }}"
+    state: absent
+  with_items:
+    - docker
+    - docker-client
+    - docker-client-latest
+    - docker-common
+    - docker-latest
+    - docker-latest-logrotate
+    - docker-logrotate
+    - docker-selinux
+    - docker-engine-selinux
+    - docker-engine
+
+- name: Install required packages
+  package:
+    name: "{{ item }}"
+  with_items:
+    - yum-utils
+    - device-mapper-persistent-data
+    - lvm2
+
+- name: Install docker repository
+  command: "yum-config-manager --add-repo {{ docker['pkg']['repo'] }}"
+
+- name: Install docker-ce
+  package:
+    name: "{{ docker['pkg']['name'] }}"
+    state: latest

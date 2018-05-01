@@ -1,0 +1,9 @@
+---
+# file: handlers/main.yml
+- name: Reload systemd configuration
+  command: systemctl daemon-reload
+
+- name: Restart docker
+  service:
+    name: "{{ docker['service'] }}"
+    state: restarted
